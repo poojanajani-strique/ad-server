@@ -1,9 +1,5 @@
-import { headers } from 'next/headers'
-
-export default function AdPage() {
-  const headersList = headers()
-  const referer = headersList.get('referer') || ''
-  const email = new URL(referer).searchParams.get('email')
+export default function AdPage({ searchParams }) {
+  const email = searchParams?.email
 
   const imageMap = {
     'poojan@strique.io': '/ads/1.png',
